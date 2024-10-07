@@ -1,0 +1,214 @@
+@keyframes float {
+    from, to {
+      transform: translateY(-0%);
+    }
+    
+    50% {    
+      transform: translateY(-3%);
+    }
+  }
+  
+  @keyframes background-pan {
+    from {
+      background-position: 1000% center;
+    }
+    
+    to {
+      background-position: 0% center;
+    }
+  }
+
+  main{
+    background-image:url("https://images.unsplash.com/photo-1493606278519-11aa9f86e40a?q=80&w=2442&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-position: center 0%;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    z-index: 1;
+    transition: transform 500ms cubic-bezier(.13, .53, .38, .97);
+  }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+
+}
+body {
+    height: 100vh;
+    margin: 0rem;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+
+a {
+    text-decoration: none;
+}
+
+.fancy > .letter {
+    display: inline-block;
+    transition: transform 350ms ease;
+}
+
+.fancy:hover > .letter {
+    transition-duration: 800ms;}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.word {
+  color: black;
+  font-size: clamp(2rem, 8vw, 10rem);
+  font-family: "Major Mono Display", monospace;
+  margin: 0rem;
+  transition: opacity 250ms ease;
+}
+
+#text:has(.fancy:hover) .word:not(.fancy:hover) {
+    opacity: 0.2;
+  }
+  
+.fancy:hover > .letter:nth-child(1) {
+    transform: translate(-80%, 60%) rotate(8deg);
+}
+  
+.fancy:hover > .letter:nth-child(2) {
+    transform: translate(-40%, 20%) rotate(4deg);
+}
+  
+.fancy:hover > .letter:nth-child(3) {
+    transform: translate(-10%, 60%) rotate(-6deg);
+}
+  
+.fancy:hover > .letter:nth-child(4) {
+    transform: translate(0%, 8%) rotate(-8deg);
+}
+  
+.fancy:hover > .letter:nth-child(5) {
+    transform: translate(0%, -20%) rotate(5deg);
+}
+  
+.fancy:hover > .letter:nth-child(6) {
+    transform: translate(0%, 20%) rotate(-3deg);
+}
+  
+.fancy:hover > .letter:nth-child(7) {
+    transform: translate(0%, -40%) rotate(-5deg);
+}
+  
+.fancy:hover > .letter:nth-child(8) {
+    transform: translate(0%, 15%) rotate(10deg);
+}
+  
+.fancy:hover > .letter:nth-child(9) {
+    transform: translate(0%, -50%) rotate(8deg);
+}
+  
+.fancy:hover > .letter:nth-child(10) {
+    transform: translate(0%, 15%) rotate(-6deg);
+}
+  
+.fancy:hover > .letter:nth-child(11) {
+    transform: translate(50%, -10%) rotate(-3deg);
+}
+  
+.fancy:hover > .letter:nth-child(12) {
+    transform: translate(120%, -30%) rotate(-10deg);
+}
+
+#nav-toggle {
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    bottom: 3rem;
+    transform: translateX(-50%);
+    background-color: black;
+    border: none;
+    border-radius: 5rem;
+    outline: none;
+    box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
+    cursor: pointer;
+    transition: transform, background-color;
+    transition-timing-function: ease;
+    transition-duration: 400ms;
+}
+#nav-toggle:hover{
+    transform: translateX(-50%) scale(1.04);
+}
+#nav-toggle:active {
+    transform: translateX(-50%) scale(0.96);
+}
+#nav-toggle > i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    columns: white;
+    font-size: 1.75rem;
+    opacity: 0;
+    transition: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 400ms;
+    color: white
+}
+body:not([data-nav="true"]) > #nav-toggle:hover > .open{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+body[data-nav="true"] > main {
+    transform: translateY(-50%);
+}
+
+main {
+    transition: transform 500ms cubic-bezier(.12, .53, .38, .97);
+}
+
+#nav-links > .nav-link {
+    text-decoration: none;
+}
+#nav-links > .nav-link > .nav-link-label{
+    color: black;
+    font-size: 1.2rem;
+    margin: 0rem;
+    text-transform: uppercase;
+}
+#nav-links > .nav-link > .nav-link-image {
+    width: max(20vw, 400px);
+    aspect-ratio: 1.8/1 ;
+    border-radius: 0.5rem;
+    margin-top: 0.75rem;
+    object-fit: cover;
+}
+
+/*Inner Wrapper*/
+nav { 
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: -1;
+
+}
+/*Outer Wrapper*/
+#nav-links {
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin-top: clamp(2rem, 2vw, 3rem);
+    padding: 0rem clamp(1rem, 2vw, 2rem);
+    transform: translateY(70%) scale(0.9);
+    transition: transform 500ms cubic-bezier(.13, .53, .38, .97);
+}
+
+body[data-nav="true"] > nav > #nav-links {
+    transform: translateY(0%) scale(1);
+}
