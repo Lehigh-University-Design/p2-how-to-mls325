@@ -168,7 +168,9 @@ main {
     border-radius: 0.5rem;
     margin-top: 0.75rem;
     object-fit: cover;
+    /* object-position: center;  */
 }
+
 
 /*Inner Wrapper*/
 nav { 
